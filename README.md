@@ -23,6 +23,8 @@ Homebrew 6 以降は非公式 tap の formula を読み込む前に `brew trust`
 | `aws-login` | AWS CLI のログイン（IAM ユーザー + MFA、IAM Identity Center の SSO）をまとめて扱う Bash ラッパー | [pixbitpoi/aws-login](https://github.com/pixbitpoi/aws-login) |
 | `aws-survey` | AWS アカウントの構成を、読み取り専用の隔離コンテナで Claude Code / Codex に調べさせる一式 | [pixbitpoi/aws-survey](https://github.com/pixbitpoi/aws-survey) |
 
+`aws-survey` は元プロファイルのログインに `aws-login` を使うため、依存に入れています（一緒に入ります）。
+
 どちらも AWS CLI v2 を必要としますが、formula の依存には含めていません。
 Homebrew の `awscli` か公式インストーラーで別途インストールしてください。
 `aws-survey` はさらに Docker を使います。cask のため依存には入れておらず、`aws-survey doctor` で有無を確認できます。

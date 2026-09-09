@@ -1,11 +1,14 @@
 class AwsSurvey < Formula
   desc "Read-only AWS account survey in an isolated container for Claude Code/Codex"
   homepage "https://github.com/pixbitpoi/aws-survey"
-  url "https://github.com/pixbitpoi/aws-survey/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "935e8ffe6501c6617f48b60731ea1b63504c94ea1383e40a9d2a113bf36aace3"
+  url "https://github.com/pixbitpoi/aws-survey/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "353aa3552382b2f53c7c81c48fc2ec7695fc127612b7ed439170445c7a797e0d"
   head "https://github.com/pixbitpoi/aws-survey.git", branch: "main"
 
   depends_on "jq"
+  # `init` writes an aws-login command as the default auth.refresh_command, and `credentials`
+  # runs it when the source profile has expired.
+  depends_on "pixbitpoi/tap/aws-login"
 
   def install
     # Only runtime material ships. docs/ is for maintainers and tests/ runs in the repository.
@@ -34,6 +37,7 @@ class AwsSurvey < Formula
     <<~EOS
       aws-survey は AWS CLI v2 と Docker を必要としますが、依存には含めていません。
       AWS CLI は `brew install awscli` か公式インストーラー、Docker は Docker Desktop などで入れてください。
+      元プロファイルのログインに使う aws-login は依存なので、一緒に入ります。
       揃っているかは `aws-survey doctor` で確認できます。
 
       使い方は対象ごとに空のフォルダを作り、そこで `aws-survey` を打つだけです。

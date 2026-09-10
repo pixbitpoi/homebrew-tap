@@ -1,8 +1,8 @@
 class AwsSurvey < Formula
   desc "Read-only AWS account survey in an isolated container for Claude Code/Codex"
   homepage "https://github.com/pixbitpoi/aws-survey"
-  url "https://github.com/pixbitpoi/aws-survey/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "353aa3552382b2f53c7c81c48fc2ec7695fc127612b7ed439170445c7a797e0d"
+  url "https://github.com/pixbitpoi/aws-survey/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "2940edd6a455166a15624833476802124c6e740688a5824eb385cc1a4c734a7e"
   head "https://github.com/pixbitpoi/aws-survey.git", branch: "main"
 
   depends_on "jq"
@@ -39,6 +39,10 @@ class AwsSurvey < Formula
       AWS CLI は `brew install awscli` か公式インストーラー、Docker は Docker Desktop などで入れてください。
       元プロファイルのログインに使う aws-login は依存なので、一緒に入ります。
       揃っているかは `aws-survey doctor` で確認できます。
+
+      Docker Desktop は Settings → Resources → File Sharing に登録した場所しかマウントできません。
+      本体は /opt/homebrew の下に入るので、File Sharing に /opt/homebrew を追加して Apply & restart してください。
+      足りない場所は `aws-survey doctor` と `aws-survey run` が案内します。
 
       使い方は対象ごとに空のフォルダを作り、そこで `aws-survey` を打つだけです。
         mkdir -p ~/surveys/example && cd ~/surveys/example && aws-survey

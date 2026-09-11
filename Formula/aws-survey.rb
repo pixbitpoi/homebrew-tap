@@ -1,8 +1,8 @@
 class AwsSurvey < Formula
   desc "Read-only AWS account survey in an isolated container for Claude Code/Codex"
   homepage "https://github.com/pixbitpoi/aws-survey"
-  url "https://github.com/pixbitpoi/aws-survey/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "7e8574fced8fb38947a77fa72488b9e74bb95872394743907971eb5cf02b8f31"
+  url "https://github.com/pixbitpoi/aws-survey/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "d65461c020bffd72955907ce1ced0121b53bc017266e62fc4e6a6fb3947647e9"
   head "https://github.com/pixbitpoi/aws-survey.git", branch: "main"
 
   depends_on "jq"
@@ -58,6 +58,8 @@ class AwsSurvey < Formula
     assert_path_exists prefix/"container/instructions/survey-agents.md"
     assert_path_exists prefix/"templates/environment.json"
     assert_path_exists libexec/"aws-survey"
+    # `aws-survey lambda pull` mounts the extractor into a throwaway container.
+    assert_path_exists libexec/"lambda/extract.py"
     # Development material must not reach the keg; nothing shipped points at it.
     refute_path_exists prefix/"AGENTS.md"
     refute_path_exists prefix/".agents"

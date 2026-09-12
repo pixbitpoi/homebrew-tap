@@ -1,8 +1,8 @@
 class AwsSurvey < Formula
   desc "Read-only AWS account survey in an isolated container for Claude Code/Codex"
   homepage "https://github.com/pixbitpoi/aws-survey"
-  url "https://github.com/pixbitpoi/aws-survey/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "0eb34194f2581dc53cb07edac8a423a965e151e8493d7ad994727f4587e038c2"
+  url "https://github.com/pixbitpoi/aws-survey/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "a57b4e043dd80021e7b1eaf6857979a97de07cbd16bed337401cbd75783a95f6"
   head "https://github.com/pixbitpoi/aws-survey.git", branch: "main"
 
   depends_on "jq"
